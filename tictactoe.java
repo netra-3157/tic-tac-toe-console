@@ -24,6 +24,7 @@ public class tictactoe {
             }
             System.out.println();
             System.out.println("-------------");
+            
         }
     }
 }
