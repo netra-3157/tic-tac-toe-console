@@ -23,8 +23,8 @@ public class tictactoe {
                 System.out.print(board[row][col] + " | ");
             }
             System.out.println();
-            System.out.println("-------------");
-        }
+            System.out.println("-------------");   
+             }
     }
 }
 
