@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class TicTacToe {
+public class tac {
 
     // UC5: Validate move
     public static boolean isValidMove(char[][] board, int row, int col) {
