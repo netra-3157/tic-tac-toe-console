@@ -1,64 +1,34 @@
 import java.util.Random;
 
-public class TicTacToe {
+public class tic {
 
-    // UC5: Validate move
-    public static boolean isValidMove(char[][] board, int row, int col) {
-        if (row < 0 || row > 2 || col < 0 || col > 2) return false;
-        return board[row][col] == ' ';
+    static boolean valid(char[][] b, int r, int c) {
+        return r >= 0 && r < 3 && c >= 0 && c < 3 && b[r][c] == ' ';
     }
 
-    // UC4: Slot → row & col
-    public static int[] getRowCol(int slot) {
-        slot = slot - 1;
-        int row = slot / 3;
-        int col = slot % 3;
-        return new int[]{row, col};
-    }
-
-    // UC6: Update board
-    public static void updateBoard(char[][] board, int row, int col, char symbol) {
-        board[row][col] = symbol;
-    }
-
-    // UC7: Computer move
-    public static void computerMove(char[][] board) {
-        Random rand = new Random();
-        int slot, row, col;
-
-        while (true) {
-            slot = rand.nextInt(9) + 1; // 1–9
-            int[] pos = getRowCol(slot);
-            row = pos[0];
-            col = pos[1];
-
-            if (isValidMove(board, row, col)) {
-                updateBoard(board, row, col, 'O');
-                System.out.println("Computer chose slot: " + slot);
-                break;
-            }
-        }
-    }
-
-    // Display board
-    public static void printBoard(char[][] board) {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print(board[i][j] + " | ");
-            }
-            System.out.println();
-        }
+    static int[] pos(int s) {
+        s--;
+        return new int[]{s / 3, s % 3};
     }
 
     public static void main(String[] args) {
+        char[][] b = {{' ',' ',' '},{' ',' ',' '},{' ',' ',' '}};
+        Random r = new Random();
 
-        char[][] board = {
-                {' ', ' ', ' '},
-                {' ', ' ', ' '},
-                {' ', ' ', ' '}
-        };
+        while (true) {
+            int s = r.nextInt(9) + 1;
+            int[] p = pos(s);
 
-        computerMove(board);
-        printBoard(board);
+            if (valid(b, p[0], p[1])) {
+                b[p[0]][p[1]] = 'O';
+                System.out.println("Slot: " + s);
+                break;
+            }
+        }
+
+        for (char[] row : b) {
+            for (char c : row) System.out.print(c + " | ");
+            System.out.println();
+        }
     }
 }
