@@ -1,46 +1,26 @@
-import java.util.Random;
+import java.util.Scanner;
 
-public class tictacUC2 {
-
-    // Player class
-    static class Player {
-        String name;
-        char symbol;
-
-        Player(String name) {
-            this.name = name;
-        }
-    }
+public class TicTacToe{
 
     public static void main(String[] args) {
 
-        // Create two players
-        Player player1 = new Player("Player 1");
-        Player player2 = new Player("Player 2");
+        Scanner scanner = new Scanner(System.in);
+        int slot;
 
-        // Create Random object
-        Random random = new Random();
+        // Ask user until valid input (1–9)
+        while (true) {
+            System.out.print("Enter a slot number (1-9): ");
+            slot = scanner.nextInt();
 
-        // Assign symbols randomly
-        if (random.nextBoolean()) {
-            player1.symbol = 'X';
-            player2.symbol = 'O';
-        } else {
-            player1.symbol = 'O';
-            player2.symbol = 'X';
+            if (slot >= 1 && slot <= 9) {
+                break;
+            } else {
+                System.out.println("Invalid input! Please enter a number between 1 and 9.");
+            }
         }
 
-        // Decide starting player randomly
-        Player startingPlayer;
-        if (random.nextBoolean()) {
-            startingPlayer = player1;
-        } else {
-            startingPlayer = player2;
-        }
+        System.out.println("You selected slot: " + slot);
 
-        // Display results
-        System.out.println(player1.name + " is assigned: " + player1.symbol);
-        System.out.println(player2.name + " is assigned: " + player2.symbol);
-        System.out.println("Starting player: " + startingPlayer.name);
+        scanner.close();
     }
 }
