@@ -1,15 +1,12 @@
 public class tictactoe {
 
-    // Method to validate move
+    // UC5: Validate move
     public static boolean isValidMove(char[][] board, int row, int col) {
-
-        // Boundary check (0–2)
         if (row < 0 || row > 2 || col < 0 || col > 2) {
             System.out.println("Invalid move: Out of bounds");
             return false;
         }
 
-        // Check if cell is empty
         if (board[row][col] != ' ') {
             System.out.println("Invalid move: Cell already occupied");
             return false;
@@ -18,7 +15,21 @@ public class tictactoe {
         return true;
     }
 
-    // Main method (for testing)
+    // UC6: Update board
+    public static void updateBoard(char[][] board, int row, int col, char symbol) {
+        board[row][col] = symbol;
+    }
+
+    // Display board (for clarity)
+    public static void printBoard(char[][] board) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print(board[i][j] + " | ");
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
 
         char[][] board = {
@@ -28,14 +39,16 @@ public class tictactoe {
         };
 
         int row = 1;
-        int col = 1;
+        int col = 2;
+        char symbol = 'X';
 
         if (isValidMove(board, row, col)) {
-            board[row][col] = 'X';
-            System.out.println("Move accepted");
+            updateBoard(board, row, col, symbol);
+            System.out.println("Move placed successfully!");
         } else {
-            System.out.println("Move rejected");
-            
+            System.out.println("Move rejected!");
         }
+
+        printBoard(board);
     }
 }
