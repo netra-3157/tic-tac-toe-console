@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class tictac {
+public class tictacUC2 {
 
     // Player class
     static class Player {
