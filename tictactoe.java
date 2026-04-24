@@ -1,20 +1,41 @@
 public class tictactoe {
 
-    // UC4: Convert slot (1–9) to row and column
-    public static int[] convertSlotToPosition(int slot) {
-        int row = (slot - 1) / 3;
-        int col = (slot - 1) % 3;
-        return new int[]{row, col};
+    // Method to validate move
+    public static boolean isValidMove(char[][] board, int row, int col) {
+
+        // Boundary check (0–2)
+        if (row < 0 || row > 2 || col < 0 || col > 2) {
+            System.out.println("Invalid move: Out of bounds");
+            return false;
+        }
+
+        // Check if cell is empty
+        if (board[row][col] != ' ') {
+            System.out.println("Invalid move: Cell already occupied");
+            return false;
+        }
+
+        return true;
     }
 
+    // Main method (for testing)
     public static void main(String[] args) {
 
-        int slot = 5; // example input
+        char[][] board = {
+                {' ', ' ', ' '},
+                {' ', ' ', ' '},
+                {' ', ' ', ' '}
+        };
 
-        int[] position = convertSlotToPosition(slot);
+        int row = 1;
+        int col = 1;
 
-        System.out.println("Row: " + position[0]);
-        System.out.println("Column: " + position[1]);
-        
+        if (isValidMove(board, row, col)) {
+            board[row][col] = 'X';
+            System.out.println("Move accepted");
+        } else {
+            System.out.println("Move rejected");
+            
+        }
     }
 }
