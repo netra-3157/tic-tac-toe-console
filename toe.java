@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class TicTacToe {
+public class toe{
 
     // UC5: Validate move
     public static boolean isValidMove(char[][] board, int row, int col) {
