@@ -1,31 +1,20 @@
 public class tictactoe {
 
-    static char[][] board = new char[3][3];
+    // UC4: Convert slot (1–9) to row and column
+    public static int[] convertSlotToPosition(int slot) {
+        int row = (slot - 1) / 3;
+        int col = (slot - 1) % 3;
+        return new int[]{row, col};
+    }
 
     public static void main(String[] args) {
-        initializeBoard();
-        printBoard();
-    }
 
-    static void initializeBoard() {
-        for (int row = 0; row < 3; row++) {
-            for (int col = 0; col < 3; col++) {
-                board[row][col] = '-';
-            }
-        }
-    }
+        int slot = 5; // example input
 
-    static void printBoard() {
-        System.out.println("-------------");
-        for (int row = 0; row < 3; row++) {
-            System.out.print("| ");
-            for (int col = 0; col < 3; col++) {
-                System.out.print(board[row][col] + " | ");
-            }
-            System.out.println();
-            System.out.println("-------------");
-            
-        }
+        int[] position = convertSlotToPosition(slot);
+
+        System.out.println("Row: " + position[0]);
+        System.out.println("Column: " + position[1]);
+        
     }
 }
-
