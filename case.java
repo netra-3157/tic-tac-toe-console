@@ -1,5 +1,4 @@
-class use {
-
+class case {
     // UC10: Check for Draw
     public static boolean isDraw(char[][] board) {
         for (int i = 0; i < 3; i++) {
