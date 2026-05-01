@@ -1,4 +1,4 @@
-public class tic {
+public class use {
 
     // UC9: Check if player has won
     public static boolean checkWin(char[][] b, char p) {
